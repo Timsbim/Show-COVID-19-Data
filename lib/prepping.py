@@ -2,17 +2,18 @@ from urllib.request import urlopen
 import pandas as pd
 
 from lib.basics import *
-from lib.timing import embedded_timing
 
 
 # Retrieving data from github repository
 
 
-@embedded_timing
 def download_data() -> None:
-    # Downloading the data from the github repository into feed files
 
-    dte = date.today()
+    # Downloading the data from the JHU GitHub repository into feed files
+
+    print_log('Downloading data from JHU repository ...')
+
+    today = set_date()
     categories = ['base'] + get_categories()[:-1]
 
     for category in categories:
@@ -23,8 +24,10 @@ def download_data() -> None:
         data = response.read().decode('utf-8')
 
         # Write data into the feed files
-        with get_feed_file_path(dte, category).open('w') as file:
+        with get_feed_file_path(today, category).open('w') as file:
             file.writelines(data)
+
+    print_log('Download finished')
 
     return None
 
@@ -32,15 +35,15 @@ def download_data() -> None:
 # Preparing data for further usage
 
 
-@embedded_timing
-def prepare_base_data(dte: date) -> None:
+def prepare_base_data(date_: str) -> None:
+
     # Preparing the basic data: How to name countries (ISO3, full name, and
     # population size)
 
     # Reading the feed csv-file into a DataFrame, taking only the necessary
     # columns (2 = ISO3-codes, 6 = province/state name, 7 = country name,
     # 11 = population size
-    frame = pd.read_csv(str(get_feed_file_path(dte, 'base')),
+    frame = pd.read_csv(str(get_feed_file_path(date_, 'base')),
                         usecols=[2, 6, 7, 11])
 
     # Dropping of:
@@ -68,14 +71,16 @@ def prepare_base_data(dte: date) -> None:
 
     # # Writing the table in the file data_base.csv in data folder of dte
     json.dump(countries,
-              get_data_file_path(dte, name='base').open('w'),
+              get_data_file_path(date_, name='base').open('w'),
               indent=4)
 
     return None
 
 
-@embedded_timing
-def get_base_data(dte: date, columns: tuple = ('iso3', 'name', 'pop')) -> dict:
+def get_base_data(date_: str,
+                  columns: tuple = ('iso3', 'name', 'pop')
+                  ) -> dict:
+
     # Extracting a (nested) dictionary from the base data from dte: The values
     # of the first column act as keys of the outer dictionary and the columns
     # as the keys of the inner dictionaries. If only 2 columns are request then
@@ -83,7 +88,7 @@ def get_base_data(dte: date, columns: tuple = ('iso3', 'name', 'pop')) -> dict:
     # of the 2. column.
 
     object_hook = (lambda obj: {column: obj[column] for column in columns})
-    countries = json.load(get_data_file_path(dte, name='base').open('r'),
+    countries = json.load(get_data_file_path(date_, name='base').open('r'),
                           object_hook=object_hook)
 
     if len(columns) == 2:
@@ -99,20 +104,22 @@ def get_base_data(dte: date, columns: tuple = ('iso3', 'name', 'pop')) -> dict:
     }
 
 
-@embedded_timing
-def prepare_data(dte: date, excel_output: bool = False) -> None:
+def prepare_data(date_: str, excel_output: bool = False) -> None:
+
+    print_log('Preparing data ...')
+
     # Preparing the base data (name, keys, pop-numbers)
-    prepare_base_data(dte)
+    prepare_base_data(date_)
 
     # Getting a dictionary that translates country names in iso3-code
-    name_to_iso3 = get_base_data(dte, columns=('name', 'iso3'))
+    name_to_iso3 = get_base_data(date_, columns=('name', 'iso3'))
 
     categories = get_categories()
     prepped_data = {}
     for category in categories[:-1]:
 
         # Reading the csv-feed-file into a DataFrame
-        frame = pd.read_csv(get_feed_file_path(dte, category))
+        frame = pd.read_csv(get_feed_file_path(date_, category))
 
         # Aggregate (sum) over rows which belong to the same country (names in
         # column 2), which also makes the country names the new index
@@ -144,7 +151,7 @@ def prepare_data(dte: date, excel_output: bool = False) -> None:
                                     - prepped_data['deaths']['cum']
 
     # Creating the rest of the dependent data (rel, diffs, ma, ...)
-    popn = get_base_data(dte, columns=('iso3', 'pop'))
+    popn = get_base_data(date_, columns=('iso3', 'pop'))
     for category in categories:
         pmio = [
             popn[country] / 1e6
@@ -179,7 +186,10 @@ def prepare_data(dte: date, excel_output: bool = False) -> None:
     # organised by tables which respectively contain all countries sheet-wise
     # into one large Excel-file
     if excel_output:
-        xlsx_file_path = str(get_data_file_path(dte, file_format='xlsx'))
+
+        print_log('Writing Excel-file ...')
+
+        xlsx_file_path = str(get_data_file_path(date_, file_format='xlsx'))
         with pd.ExcelWriter(xlsx_file_path) as xlsx_file:
             for category, variant in [
                                         (category, variant)
@@ -188,6 +198,8 @@ def prepare_data(dte: date, excel_output: bool = False) -> None:
                                      ]:
                 frame = prepped_data[category][variant]
                 frame.to_excel(xlsx_file, sheet_name=f"{category}_{variant}")
+
+        print_log('Excel-file finished')
 
     # Writing the data in one JSON-file: Organized with a multi-index
     # (category, variant, day) and the countries as columns
@@ -215,10 +227,17 @@ def prepare_data(dte: date, excel_output: bool = False) -> None:
     frame_all.sort_index()
 
     # Writing the new frame in a JSON-file
-    json_file_path = get_data_file_path(dte, file_format='json.gz')
+
+    print_log('Writing JSON-file ...')
+
+    json_file_path = get_data_file_path(date_, file_format='json.gz')
     frame_all.to_json(json_file_path,
                       orient='table',
                       indent=4,
                       compression='gzip')
+
+    print_log('JSON-file finished')
+
+    print_log('Data preparation finished')
 
     return None
