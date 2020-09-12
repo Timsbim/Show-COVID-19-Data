@@ -3,7 +3,7 @@ from datetime import date
 import json
 
 
-WORKING_DIR = '//'
+WORKING_DIR = 'MyDir'
 
 
 # Basic structuring
