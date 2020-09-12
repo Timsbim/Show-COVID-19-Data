@@ -16,17 +16,17 @@ if __name__ == '__main__':
     today = set_date()
 
     # Downloading data
-    # download_data()
+    download_data()
 
     # Preparing data
-    # prepare_data(today)
+    prepare_data(today)
 
     # Plotting single countries
     length = 175
     # show_countries(today, 'TTL', length=length)
-    # show_countries(today, *get_region('europe', 'west'), length=length)
+    show_countries(today, *get_region('europe', 'west'), length=length)
     # show_countries(today, *get_region('europe', 'north'), length=length)
-    show_countries(today, *get_region('europe', 'south'), length=length)
+    # show_countries(today, *get_region('europe', 'south'), length=length)
     # show_countries(today, *get_region('europe', 'east'), length=length)
     # show_countries(today, *get_region('europe', 'balkans'), length=length)
     # show_countries(today, *get_region('america', 'north'), length=length)
