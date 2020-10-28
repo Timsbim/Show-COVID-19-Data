@@ -82,10 +82,10 @@ def get_base_data(date_: str,
                   ) -> dict:
 
     # Extracting a (nested) dictionary from the base data from dte: The values
-    # of the first column act as keys of the outer dictionary and the columns
+    # of the first column act as keys to the outer dictionary and the columns
     # as the keys of the inner dictionaries. If only 2 columns are request then
     # there's no inner dictionary: The values to the keys are the values of the
-    # of the 2. column.
+    # the 2. column.
 
     object_hook = (lambda obj: {column: obj[column] for column in columns})
     countries = json.load(get_data_file_path(date_, name='base').open('r'),
