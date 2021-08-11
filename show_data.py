@@ -2,23 +2,23 @@ from lib.basics import set_date, get_region, get_categories
 from lib.prepping import download_data, prepare_data
 from lib.showing import show_countries, show_groups
 
-
-# Data are renewed daily (between midnight and the early morning hours).
-# Setting the day decides which data are going to be processed. Be
-# careful: Downloaded data have to be available for the selected day for
-# the functions:
-# - prepare_data
-# - show_countries
-# - show_groups
+"""
+Data are renewed daily (between midnight and the early morning hours).
+Setting the day decides which data are going to be processed. Be careful:
+Downloaded data have to be available for the selected day for the functions:
+ - prepare_data
+ - show_countries
+ - show_groups
+"""
 
 # Setting the date
 today = set_date()
 
 # Downloading data
-#download_data()
+download_data()
 
 # Preparing data
-#prepare_data(today)
+prepare_data(today)
 
 # Plotting single countries
 length = 300
