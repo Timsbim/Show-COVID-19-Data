@@ -1,0 +1,987 @@
+[
+    {
+        "iso3": "AFG",
+        "name": "Afghanistan",
+        "pop": 38928341.0
+    },
+    {
+        "iso3": "AGO",
+        "name": "Angola",
+        "pop": 32866268.0
+    },
+    {
+        "iso3": "ALB",
+        "name": "Albania",
+        "pop": 2877800.0
+    },
+    {
+        "iso3": "AND",
+        "name": "Andorra",
+        "pop": 77265.0
+    },
+    {
+        "iso3": "ARE",
+        "name": "United Arab Emirates",
+        "pop": 9890400.0
+    },
+    {
+        "iso3": "ARG",
+        "name": "Argentina",
+        "pop": 45195777.0
+    },
+    {
+        "iso3": "ARM",
+        "name": "Armenia",
+        "pop": 2963234.0
+    },
+    {
+        "iso3": "ATG",
+        "name": "Antigua and Barbuda",
+        "pop": 97928.0
+    },
+    {
+        "iso3": "AUS",
+        "name": "Australia",
+        "pop": 25459700.0
+    },
+    {
+        "iso3": "AUT",
+        "name": "Austria",
+        "pop": 9006400.0
+    },
+    {
+        "iso3": "AZE",
+        "name": "Azerbaijan",
+        "pop": 10139175.0
+    },
+    {
+        "iso3": "BDI",
+        "name": "Burundi",
+        "pop": 11890781.0
+    },
+    {
+        "iso3": "BEL",
+        "name": "Belgium",
+        "pop": 11589616.0
+    },
+    {
+        "iso3": "BEN",
+        "name": "Benin",
+        "pop": 12123198.0
+    },
+    {
+        "iso3": "BFA",
+        "name": "Burkina Faso",
+        "pop": 20903278.0
+    },
+    {
+        "iso3": "BGD",
+        "name": "Bangladesh",
+        "pop": 164689383.0
+    },
+    {
+        "iso3": "BGR",
+        "name": "Bulgaria",
+        "pop": 6948445.0
+    },
+    {
+        "iso3": "BHR",
+        "name": "Bahrain",
+        "pop": 1701583.0
+    },
+    {
+        "iso3": "BHS",
+        "name": "Bahamas",
+        "pop": 393248.0
+    },
+    {
+        "iso3": "BIH",
+        "name": "Bosnia and Herzegovina",
+        "pop": 3280815.0
+    },
+    {
+        "iso3": "BLR",
+        "name": "Belarus",
+        "pop": 9449321.0
+    },
+    {
+        "iso3": "BLZ",
+        "name": "Belize",
+        "pop": 397621.0
+    },
+    {
+        "iso3": "BOL",
+        "name": "Bolivia",
+        "pop": 11673029.0
+    },
+    {
+        "iso3": "BRA",
+        "name": "Brazil",
+        "pop": 212559409.0
+    },
+    {
+        "iso3": "BRB",
+        "name": "Barbados",
+        "pop": 287371.0
+    },
+    {
+        "iso3": "BRN",
+        "name": "Brunei",
+        "pop": 437483.0
+    },
+    {
+        "iso3": "BTN",
+        "name": "Bhutan",
+        "pop": 771612.0
+    },
+    {
+        "iso3": "BWA",
+        "name": "Botswana",
+        "pop": 2351625.0
+    },
+    {
+        "iso3": "CAF",
+        "name": "Central African Republic",
+        "pop": 4829764.0
+    },
+    {
+        "iso3": "CAN",
+        "name": "Canada",
+        "pop": 37855702.0
+    },
+    {
+        "iso3": "CHE",
+        "name": "Switzerland",
+        "pop": 8654618.0
+    },
+    {
+        "iso3": "CHL",
+        "name": "Chile",
+        "pop": 19116209.0
+    },
+    {
+        "iso3": "CHN",
+        "name": "China",
+        "pop": 1404676330.0
+    },
+    {
+        "iso3": "CIV",
+        "name": "Cote d'Ivoire",
+        "pop": 26378275.0
+    },
+    {
+        "iso3": "CMR",
+        "name": "Cameroon",
+        "pop": 26545864.0
+    },
+    {
+        "iso3": "COD",
+        "name": "Congo (Kinshasa)",
+        "pop": 89561404.0
+    },
+    {
+        "iso3": "COG",
+        "name": "Congo (Brazzaville)",
+        "pop": 5518092.0
+    },
+    {
+        "iso3": "COL",
+        "name": "Colombia",
+        "pop": 50882884.0
+    },
+    {
+        "iso3": "COM",
+        "name": "Comoros",
+        "pop": 869595.0
+    },
+    {
+        "iso3": "CPV",
+        "name": "Cabo Verde",
+        "pop": 555988.0
+    },
+    {
+        "iso3": "CRI",
+        "name": "Costa Rica",
+        "pop": 5094114.0
+    },
+    {
+        "iso3": "CUB",
+        "name": "Cuba",
+        "pop": 11326616.0
+    },
+    {
+        "iso3": "CYP",
+        "name": "Cyprus",
+        "pop": 1207361.0
+    },
+    {
+        "iso3": "CZE",
+        "name": "Czechia",
+        "pop": 10708982.0
+    },
+    {
+        "iso3": "DEU",
+        "name": "Germany",
+        "pop": 83783945.0
+    },
+    {
+        "iso3": "DJI",
+        "name": "Djibouti",
+        "pop": 988002.0
+    },
+    {
+        "iso3": "DMA",
+        "name": "Dominica",
+        "pop": 71991.0
+    },
+    {
+        "iso3": "DNK",
+        "name": "Denmark",
+        "pop": 5792203.0
+    },
+    {
+        "iso3": "DOM",
+        "name": "Dominican Republic",
+        "pop": 10847904.0
+    },
+    {
+        "iso3": "DPR",
+        "name": "Diamond Princess",
+        "pop": 3700
+    },
+    {
+        "iso3": "DZA",
+        "name": "Algeria",
+        "pop": 43851043.0
+    },
+    {
+        "iso3": "ECU",
+        "name": "Ecuador",
+        "pop": 17643060.0
+    },
+    {
+        "iso3": "EGY",
+        "name": "Egypt",
+        "pop": 102334403.0
+    },
+    {
+        "iso3": "ERI",
+        "name": "Eritrea",
+        "pop": 3546427.0
+    },
+    {
+        "iso3": "ESH",
+        "name": "Western Sahara",
+        "pop": 597330.0
+    },
+    {
+        "iso3": "ESP",
+        "name": "Spain",
+        "pop": 46754783.0
+    },
+    {
+        "iso3": "EST",
+        "name": "Estonia",
+        "pop": 1326539.0
+    },
+    {
+        "iso3": "ETH",
+        "name": "Ethiopia",
+        "pop": 114963583.0
+    },
+    {
+        "iso3": "FIN",
+        "name": "Finland",
+        "pop": 5540718.0
+    },
+    {
+        "iso3": "FJI",
+        "name": "Fiji",
+        "pop": 896444.0
+    },
+    {
+        "iso3": "FRA",
+        "name": "France",
+        "pop": 65273512.0
+    },
+    {
+        "iso3": "FSM",
+        "name": "Micronesia",
+        "pop": 113815.0
+    },
+    {
+        "iso3": "GAB",
+        "name": "Gabon",
+        "pop": 2225728.0
+    },
+    {
+        "iso3": "GBR",
+        "name": "United Kingdom",
+        "pop": 67886004.0
+    },
+    {
+        "iso3": "GEO",
+        "name": "Georgia",
+        "pop": 3989175.0
+    },
+    {
+        "iso3": "GHA",
+        "name": "Ghana",
+        "pop": 31072945.0
+    },
+    {
+        "iso3": "GIN",
+        "name": "Guinea",
+        "pop": 13132792.0
+    },
+    {
+        "iso3": "GMB",
+        "name": "Gambia",
+        "pop": 2416664.0
+    },
+    {
+        "iso3": "GNB",
+        "name": "Guinea-Bissau",
+        "pop": 1967998.0
+    },
+    {
+        "iso3": "GNQ",
+        "name": "Equatorial Guinea",
+        "pop": 1402985.0
+    },
+    {
+        "iso3": "GRC",
+        "name": "Greece",
+        "pop": 10423056.0
+    },
+    {
+        "iso3": "GRD",
+        "name": "Grenada",
+        "pop": 112519.0
+    },
+    {
+        "iso3": "GTM",
+        "name": "Guatemala",
+        "pop": 17915567.0
+    },
+    {
+        "iso3": "GUY",
+        "name": "Guyana",
+        "pop": 786559.0
+    },
+    {
+        "iso3": "HND",
+        "name": "Honduras",
+        "pop": 9904608.0
+    },
+    {
+        "iso3": "HRV",
+        "name": "Croatia",
+        "pop": 4105268.0
+    },
+    {
+        "iso3": "HTI",
+        "name": "Haiti",
+        "pop": 11402533.0
+    },
+    {
+        "iso3": "HUN",
+        "name": "Hungary",
+        "pop": 9660350.0
+    },
+    {
+        "iso3": "IDN",
+        "name": "Indonesia",
+        "pop": 273523621.0
+    },
+    {
+        "iso3": "IND",
+        "name": "India",
+        "pop": 1380004385.0
+    },
+    {
+        "iso3": "IRL",
+        "name": "Ireland",
+        "pop": 4937796.0
+    },
+    {
+        "iso3": "IRN",
+        "name": "Iran",
+        "pop": 83992953.0
+    },
+    {
+        "iso3": "IRQ",
+        "name": "Iraq",
+        "pop": 40222503.0
+    },
+    {
+        "iso3": "ISL",
+        "name": "Iceland",
+        "pop": 341250.0
+    },
+    {
+        "iso3": "ISR",
+        "name": "Israel",
+        "pop": 8655541.0
+    },
+    {
+        "iso3": "ITA",
+        "name": "Italy",
+        "pop": 60461828.0
+    },
+    {
+        "iso3": "JAM",
+        "name": "Jamaica",
+        "pop": 2961161.0
+    },
+    {
+        "iso3": "JOR",
+        "name": "Jordan",
+        "pop": 10203140.0
+    },
+    {
+        "iso3": "JPN",
+        "name": "Japan",
+        "pop": 126476458.0
+    },
+    {
+        "iso3": "KAZ",
+        "name": "Kazakhstan",
+        "pop": 18776707.0
+    },
+    {
+        "iso3": "KEN",
+        "name": "Kenya",
+        "pop": 53771300.0
+    },
+    {
+        "iso3": "KGZ",
+        "name": "Kyrgyzstan",
+        "pop": 6524191.0
+    },
+    {
+        "iso3": "KHM",
+        "name": "Cambodia",
+        "pop": 16718971.0
+    },
+    {
+        "iso3": "KIR",
+        "name": "Kiribati",
+        "pop": 117606.0
+    },
+    {
+        "iso3": "KNA",
+        "name": "Saint Kitts and Nevis",
+        "pop": 53192.0
+    },
+    {
+        "iso3": "KOR",
+        "name": "Korea, South",
+        "pop": 51269183.0
+    },
+    {
+        "iso3": "KWT",
+        "name": "Kuwait",
+        "pop": 4270563.0
+    },
+    {
+        "iso3": "LAO",
+        "name": "Laos",
+        "pop": 7275556.0
+    },
+    {
+        "iso3": "LBN",
+        "name": "Lebanon",
+        "pop": 6825442.0
+    },
+    {
+        "iso3": "LBR",
+        "name": "Liberia",
+        "pop": 5057677.0
+    },
+    {
+        "iso3": "LBY",
+        "name": "Libya",
+        "pop": 6871287.0
+    },
+    {
+        "iso3": "LCA",
+        "name": "Saint Lucia",
+        "pop": 183629.0
+    },
+    {
+        "iso3": "LIE",
+        "name": "Liechtenstein",
+        "pop": 38137.0
+    },
+    {
+        "iso3": "LKA",
+        "name": "Sri Lanka",
+        "pop": 21413250.0
+    },
+    {
+        "iso3": "LSO",
+        "name": "Lesotho",
+        "pop": 2142252.0
+    },
+    {
+        "iso3": "LTU",
+        "name": "Lithuania",
+        "pop": 2722291.0
+    },
+    {
+        "iso3": "LUX",
+        "name": "Luxembourg",
+        "pop": 625976.0
+    },
+    {
+        "iso3": "LVA",
+        "name": "Latvia",
+        "pop": 1886202.0
+    },
+    {
+        "iso3": "MAR",
+        "name": "Morocco",
+        "pop": 36910558.0
+    },
+    {
+        "iso3": "MCO",
+        "name": "Monaco",
+        "pop": 39244.0
+    },
+    {
+        "iso3": "MDA",
+        "name": "Moldova",
+        "pop": 4033963.0
+    },
+    {
+        "iso3": "MDG",
+        "name": "Madagascar",
+        "pop": 27691019.0
+    },
+    {
+        "iso3": "MDV",
+        "name": "Maldives",
+        "pop": 540542.0
+    },
+    {
+        "iso3": "MEX",
+        "name": "Mexico",
+        "pop": 127792286.0
+    },
+    {
+        "iso3": "MHL",
+        "name": "Marshall Islands",
+        "pop": 58413.0
+    },
+    {
+        "iso3": "MKD",
+        "name": "North Macedonia",
+        "pop": 2083380.0
+    },
+    {
+        "iso3": "MLI",
+        "name": "Mali",
+        "pop": 20250834.0
+    },
+    {
+        "iso3": "MLT",
+        "name": "Malta",
+        "pop": 441539.0
+    },
+    {
+        "iso3": "MMR",
+        "name": "Burma",
+        "pop": 54409794.0
+    },
+    {
+        "iso3": "MNE",
+        "name": "Montenegro",
+        "pop": 628062.0
+    },
+    {
+        "iso3": "MNG",
+        "name": "Mongolia",
+        "pop": 3278292.0
+    },
+    {
+        "iso3": "MOZ",
+        "name": "Mozambique",
+        "pop": 31255435.0
+    },
+    {
+        "iso3": "MRT",
+        "name": "Mauritania",
+        "pop": 4649660.0
+    },
+    {
+        "iso3": "MUS",
+        "name": "Mauritius",
+        "pop": 1271767.0
+    },
+    {
+        "iso3": "MWI",
+        "name": "Malawi",
+        "pop": 19129955.0
+    },
+    {
+        "iso3": "MYS",
+        "name": "Malaysia",
+        "pop": 32365998.0
+    },
+    {
+        "iso3": "NAM",
+        "name": "Namibia",
+        "pop": 2540916.0
+    },
+    {
+        "iso3": "NER",
+        "name": "Niger",
+        "pop": 24206636.0
+    },
+    {
+        "iso3": "NGA",
+        "name": "Nigeria",
+        "pop": 206139587.0
+    },
+    {
+        "iso3": "NIC",
+        "name": "Nicaragua",
+        "pop": 6624554.0
+    },
+    {
+        "iso3": "NLD",
+        "name": "Netherlands",
+        "pop": 17134873.0
+    },
+    {
+        "iso3": "NOR",
+        "name": "Norway",
+        "pop": 5421242.0
+    },
+    {
+        "iso3": "NPL",
+        "name": "Nepal",
+        "pop": 29136808.0
+    },
+    {
+        "iso3": "NZL",
+        "name": "New Zealand",
+        "pop": 4822233.0
+    },
+    {
+        "iso3": "OMN",
+        "name": "Oman",
+        "pop": 5106622.0
+    },
+    {
+        "iso3": "PAK",
+        "name": "Pakistan",
+        "pop": 220892331.0
+    },
+    {
+        "iso3": "PAN",
+        "name": "Panama",
+        "pop": 4314768.0
+    },
+    {
+        "iso3": "PER",
+        "name": "Peru",
+        "pop": 32971846.0
+    },
+    {
+        "iso3": "PHL",
+        "name": "Philippines",
+        "pop": 109581085.0
+    },
+    {
+        "iso3": "PLW",
+        "name": "Palau",
+        "pop": 18008.0
+    },
+    {
+        "iso3": "PNG",
+        "name": "Papua New Guinea",
+        "pop": 8947027.0
+    },
+    {
+        "iso3": "POL",
+        "name": "Poland",
+        "pop": 37846605.0
+    },
+    {
+        "iso3": "PRT",
+        "name": "Portugal",
+        "pop": 10196707.0
+    },
+    {
+        "iso3": "PRY",
+        "name": "Paraguay",
+        "pop": 7132530.0
+    },
+    {
+        "iso3": "PSE",
+        "name": "West Bank and Gaza",
+        "pop": 5101416.0
+    },
+    {
+        "iso3": "QAT",
+        "name": "Qatar",
+        "pop": 2881060.0
+    },
+    {
+        "iso3": "ROU",
+        "name": "Romania",
+        "pop": 19237682.0
+    },
+    {
+        "iso3": "RUS",
+        "name": "Russia",
+        "pop": 145934460.0
+    },
+    {
+        "iso3": "RWA",
+        "name": "Rwanda",
+        "pop": 12952209.0
+    },
+    {
+        "iso3": "SAU",
+        "name": "Saudi Arabia",
+        "pop": 34813867.0
+    },
+    {
+        "iso3": "SDN",
+        "name": "Sudan",
+        "pop": 43849269.0
+    },
+    {
+        "iso3": "SEN",
+        "name": "Senegal",
+        "pop": 16743930.0
+    },
+    {
+        "iso3": "SGP",
+        "name": "Singapore",
+        "pop": 5850343.0
+    },
+    {
+        "iso3": "SLB",
+        "name": "Solomon Islands",
+        "pop": 652858.0
+    },
+    {
+        "iso3": "SLE",
+        "name": "Sierra Leone",
+        "pop": 7976985.0
+    },
+    {
+        "iso3": "SLV",
+        "name": "El Salvador",
+        "pop": 6486201.0
+    },
+    {
+        "iso3": "SMR",
+        "name": "San Marino",
+        "pop": 33938.0
+    },
+    {
+        "iso3": "SO2",
+        "name": "Summer Olympics 2020",
+        "pop": 10000
+    },
+    {
+        "iso3": "SOM",
+        "name": "Somalia",
+        "pop": 15893219.0
+    },
+    {
+        "iso3": "SRB",
+        "name": "Serbia",
+        "pop": 8737370.0
+    },
+    {
+        "iso3": "SSD",
+        "name": "South Sudan",
+        "pop": 11193729.0
+    },
+    {
+        "iso3": "STP",
+        "name": "Sao Tome and Principe",
+        "pop": 219161.0
+    },
+    {
+        "iso3": "SUR",
+        "name": "Suriname",
+        "pop": 586634.0
+    },
+    {
+        "iso3": "SVK",
+        "name": "Slovakia",
+        "pop": 5459643.0
+    },
+    {
+        "iso3": "SVN",
+        "name": "Slovenia",
+        "pop": 2078932.0
+    },
+    {
+        "iso3": "SWE",
+        "name": "Sweden",
+        "pop": 10099270.0
+    },
+    {
+        "iso3": "SWZ",
+        "name": "Eswatini",
+        "pop": 1160164.0
+    },
+    {
+        "iso3": "SYC",
+        "name": "Seychelles",
+        "pop": 98340.0
+    },
+    {
+        "iso3": "SYR",
+        "name": "Syria",
+        "pop": 17500657.0
+    },
+    {
+        "iso3": "TCD",
+        "name": "Chad",
+        "pop": 16425859.0
+    },
+    {
+        "iso3": "TGO",
+        "name": "Togo",
+        "pop": 8278737.0
+    },
+    {
+        "iso3": "THA",
+        "name": "Thailand",
+        "pop": 69799978.0
+    },
+    {
+        "iso3": "TJK",
+        "name": "Tajikistan",
+        "pop": 9537642.0
+    },
+    {
+        "iso3": "TLS",
+        "name": "Timor-Leste",
+        "pop": 1318442.0
+    },
+    {
+        "iso3": "TTL",
+        "name": "Total",
+        "pop": 7712112650.0
+    },
+    {
+        "iso3": "TTO",
+        "name": "Trinidad and Tobago",
+        "pop": 1399491.0
+    },
+    {
+        "iso3": "TUN",
+        "name": "Tunisia",
+        "pop": 11818618.0
+    },
+    {
+        "iso3": "TUR",
+        "name": "Turkey",
+        "pop": 84339067.0
+    },
+    {
+        "iso3": "TWN",
+        "name": "Taiwan*",
+        "pop": 23816775.0
+    },
+    {
+        "iso3": "TZA",
+        "name": "Tanzania",
+        "pop": 59734213.0
+    },
+    {
+        "iso3": "UGA",
+        "name": "Uganda",
+        "pop": 45741000.0
+    },
+    {
+        "iso3": "UKR",
+        "name": "Ukraine",
+        "pop": 43733759.0
+    },
+    {
+        "iso3": "URY",
+        "name": "Uruguay",
+        "pop": 3473727.0
+    },
+    {
+        "iso3": "USA",
+        "name": "US",
+        "pop": 329466283.0
+    },
+    {
+        "iso3": "UZB",
+        "name": "Uzbekistan",
+        "pop": 33469199.0
+    },
+    {
+        "iso3": "VAT",
+        "name": "Holy See",
+        "pop": 809.0
+    },
+    {
+        "iso3": "VCT",
+        "name": "Saint Vincent and the Grenadines",
+        "pop": 110947.0
+    },
+    {
+        "iso3": "VEN",
+        "name": "Venezuela",
+        "pop": 28435943.0
+    },
+    {
+        "iso3": "VNM",
+        "name": "Vietnam",
+        "pop": 97338583.0
+    },
+    {
+        "iso3": "VUT",
+        "name": "Vanuatu",
+        "pop": 292680.0
+    },
+    {
+        "iso3": "WSM",
+        "name": "Samoa",
+        "pop": 196130.0
+    },
+    {
+        "iso3": "XKS",
+        "name": "Kosovo",
+        "pop": 1810366.0
+    },
+    {
+        "iso3": "YEM",
+        "name": "Yemen",
+        "pop": 29825968.0
+    },
+    {
+        "iso3": "ZAF",
+        "name": "South Africa",
+        "pop": 59308690.0
+    },
+    {
+        "iso3": "ZDM",
+        "name": "MS Zaandam",
+        "pop": 1829
+    },
+    {
+        "iso3": "ZMB",
+        "name": "Zambia",
+        "pop": 18383956.0
+    },
+    {
+        "iso3": "ZWE",
+        "name": "Zimbabwe",
+        "pop": 14862927.0
+    }
+]

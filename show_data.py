@@ -15,7 +15,7 @@ from lib.showing import show_countries, show_groups
 today = set_date()
 
 # Downloading data
-#download_data()
+download_data()
 
 # Preparing data
 prepare_data(today)
