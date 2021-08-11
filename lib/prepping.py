@@ -125,7 +125,7 @@ def prepare_data(date_, excel_output=False):
         df = df.groupby(df.columns[1]).sum()
 
         # Dropping the unnecessary columns (longitudes and latitudes -> 1, 2)
-        df.drop(columns=[df.columns[i] for i in {0, 1}], inplace=True)
+        df = df.drop(columns=[df.columns[i] for i in {0, 1}])
 
         # Setting a new index: ISO3-codes of the countries
         df.index = pd.Index([name_to_iso3[name] for name in df.index])
@@ -134,11 +134,11 @@ def prepare_data(date_, excel_output=False):
         df = df.T
 
         # Fixing index: Setting a new index with proper date-times
-        df.index = pd.Index(pd.to_datetime(list(df.index)))
+        df.index = pd.Index(pd.to_datetime(df.index))
 
         # Fixing columns: Adding a column for the total sum of all countries
-        df = pd.concat([df, df.sum(axis="columns")], axis="columns")
-        df.rename({0: "TTL"}, axis="columns", inplace=True)
+        df = (pd.concat([df, df.sum(axis="columns")], axis="columns")
+              .rename({0: "TTL"}, axis="columns"))
 
         # Packing the frame in the dictionary for the prepped data
         prepped_data[category] = {"cum": df.copy()}
