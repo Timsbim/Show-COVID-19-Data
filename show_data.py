@@ -15,13 +15,13 @@ from lib.showing import show_countries, show_groups
 today = set_date()
 
 # Downloading data
-download_data()
+#download_data()
 
 # Preparing data
-prepare_data(today)
+#prepare_data(today)
 
 # Plotting single countries
-length = 500
+length = 300
 
 # show_countries(today, 'TTL', length=length)
 show_countries(today, *get_region('europe', 'west'), length=length)

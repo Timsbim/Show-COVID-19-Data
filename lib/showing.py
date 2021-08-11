@@ -89,8 +89,8 @@ def setup_ax(ax, days):
     ax.xaxis.set_ticklabels(minor_labels, minor=True)
     ax.xaxis.set_ticks(major_ticks, minor=False)
     ax.xaxis.set_ticklabels(major_labels, minor=False)
-    ax.xaxis.set_tick_params(which="both", labelsize=14)
-    ax.yaxis.set_tick_params(which="both", labelsize=14)
+    ax.xaxis.set_tick_params(which="both", labelsize=10)
+    ax.yaxis.set_tick_params(which="both", labelsize=12)
 
     # Setting the grid
     ax.grid(True, which="both")
@@ -98,7 +98,7 @@ def setup_ax(ax, days):
     ax.grid(which="minor", linestyle="dashed")
 
     # Setting the labels of the x-axis, including the font size
-    ax.set_xlabel("day", fontsize=16)
+    ax.set_xlabel("day", fontsize=14)
 
 
 def show_countries(date_: str, *countries: str, length: int = 1000) -> None:
