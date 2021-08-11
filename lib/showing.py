@@ -47,18 +47,8 @@ def setup_ax(ax, days):
 
     # Months
     months = (
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct",
+        "Nov", "Dec",
     )
 
     # Setting the viewable range of x-axis
