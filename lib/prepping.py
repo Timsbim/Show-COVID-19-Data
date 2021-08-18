@@ -18,7 +18,7 @@ def download_data():
             data = r.read().decode("utf-8")
 
         # Write data into the feed files
-        with get_feed_file_path(today, category).open("w") as file:
+        with get_feed_file_path(today, category).open("w", newline="") as file:
             file.write(data)
 
     print_log("Download finished")
