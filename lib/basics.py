@@ -56,7 +56,7 @@ def get_variants(category):
 # Web-related information
 
 
-def get_feed_url(category: str) -> str:
+def get_feed_url(category):
     """Provides the data urls of John Hopkins University's GitHub project
     (confirmed, deaths, recovered)
     """
@@ -101,14 +101,14 @@ def get_dir_path(key, date_=None):
     return path
 
 
-def get_settings_file_path(key: str):
+def get_settings_file_path(key):
     """Provides path to the settings files (json-files stored in the folder
     ../settings, containing some basic parameters and definitions)
     """
     return get_dir_path("settings").joinpath(key + ".json")
 
 
-def get_feed_file_path(date_: str, category: str):
+def get_feed_file_path(date_, category):
     """Provides paths to the CSV-files used for saving the downloaded data:
     dir_base/dte/data/feed_(confirmed/deaths/recovered).csv
     """

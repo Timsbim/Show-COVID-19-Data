@@ -91,7 +91,7 @@ def setup_ax(ax, days):
     ax.set_xlabel("day", fontsize=14)
 
 
-def show_countries(date_: str, *countries: str, length: int = 1000) -> None:
+def show_countries(date_, *countries, length=1000):
     """Creates a standard set of plots for every country provided by the
     argument countries (usually a list). The set contains:
     - Confirmed cases, cumulative and diffs (including the 1-week-moving
@@ -223,7 +223,7 @@ def get_group_data_to_show(date_, plots, groups, length=1000):
     return data
 
 
-def show_groups(date_: str, groups: dict, length: int = 1000) -> None:
+def show_groups(date_, groups, length=1000):
     """Creates a standard set of plots for groups of countries provided by the
     argument groups (a dictionary). The set contains:
     - Confirmed cases per million, cumulative and diffs (including the
