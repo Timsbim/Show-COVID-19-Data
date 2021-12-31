@@ -21,7 +21,7 @@ download_data()
 prepare_data(today)
 
 # Plotting single countries
-length = 300
+length = 550
 
 # show_countries(today, 'TTL', length=length)
 show_countries(today, *get_region('europe', 'west'), length=length)
