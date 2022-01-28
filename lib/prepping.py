@@ -79,11 +79,10 @@ def prepare_base_data(date_):
 
 
 def get_base_data(date_, columns=("iso3", "name", "pop")):
-    """Extracts a (nested) dictionary from the base data from dte: The values
+    """Extracts a (nested) dictionary from the base data from date_: The values
     of the first column act as keys of the outer dictionary and the columns
-    as the keys of the inner dictionaries. If only 2 columns are request then
-    there's no inner dictionary: The values to the keys are the values of the
-    of the 2. column.
+    as the keys of the inner dictionaries. If only 2 columns are requested then
+    there's no inner dictionary: The values the values of the of the 2. column.
     """
     object_hook = lambda obj: {column: obj[column] for column in columns}
     countries = json.load(
