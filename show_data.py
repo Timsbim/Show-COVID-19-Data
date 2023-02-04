@@ -1,44 +1,68 @@
-from lib.basics import set_date, get_region, get_categories
+from argparse import ArgumentParser
+
+from lib.basics import set_date
 from lib.prepping import download_data, prepare_data
 from lib.showing import show_countries, show_groups
 
-"""
-Data are renewed daily (between midnight and the early morning hours).
-Setting the day decides which data are going to be processed. Be careful:
-Downloaded data have to be available for the selected day for the functions:
- - prepare_data
- - show_countries
- - show_groups
-"""
 
-# Setting the date
-today = set_date()
+def get_arguments():
+    parser = ArgumentParser(
+        prog="Show Covid-19",
+        description="Make charts of Covid-19 data",
+    )
+    parser.add_argument(
+        "-n", "--no-download",
+        help="no new data download",
+        action="store_true",
+        default=False,
+    )
+    parser.add_argument(
+        "countries",
+        help="specify countries by iso code, e.g. DEU for Germany",
+        nargs="*",
+    )
+    parser.add_argument(
+        "-g", "--groups",
+        help="specify comparison groups, e.g. DEU-FRA for Germany vs. France",
+        nargs="*",
+    )
+    parser.add_argument(
+        "-l", "--length",
+        help="specify length of time series in days (default is 365 days)",
+        type=int,
+        default=365,
+    )
+    return parser.parse_args()
 
-# Downloading data
-download_data()
 
-# Preparing data
-prepare_data(today)
+if __name__ == "__main__":
+    
+    # Evaluate the arguments
+    args = get_arguments()
+    countries = args.countries
+    download = not args.no_download
+    groups = args.groups
+    length = args.length
+    
+    # Setting the date
+    today = set_date()
 
-# Plotting single countries
-length = 550
+    if download:
+        # Downloading data
+        download_data()
 
-# show_countries(today, 'TTL', length=length)
-show_countries(today, *get_region('europe', 'west'), length=length)
-# show_countries(today, *get_region('europe', 'north'), length=length)
-# show_countries(today, *get_region('europe', 'south'), length=length)
-# show_countries(today, *get_region('europe', 'east'), length=length)
-# show_countries(today, *get_region('europe', 'balkans'), length=length)
-# show_countries(today, *get_region('america', 'north'), length=length)
-# show_countries(today, *get_region('america', 'south'), length=length)
-# show_countries(today, *get_region('africa', 'south'), length=length)
+        # Preparing data
+        prepare_data(today)
 
-# Plotting groups of countries
-# show_groups(today, {'DEU vs. BiH': ['BIH', 'DEU']}, length=length)
-# show_groups(today, {'DEU vs. ROU': ['ROU', 'DEU']}, length=length)
-# show_groups(today, {'DEU vs. SWE': ['SWE', 'DEU']}, length=length)
-# show_groups(today, {'DEU vs. ITA': ['ITA', 'DEU']}, length=length)
-show_groups(today, {'DEU vs. FRA': ['FRA', 'DEU']}, length=length)
-# show_groups(today, {'DEU vs. USA': ['USA', 'DEU']}, length=length)
-# show_groups(today, {'DEU vs. GBR': ['GBR', 'DEU']}, length=length)
-# show_groups(today, {'DEU vs. DNK': ['DNK', 'DEU']}, length=length)
+    # show_countries(today, 'TTL', length=length)
+    if len(countries) > 0:
+        show_countries(today, *countries, length=length)
+    
+    # Plotting groups of countries
+    if groups is not None:
+        groups = {
+            " vs. ".join(group.split("-")): group.split("-")
+            for group in groups
+        }
+        show_groups(today, groups, length=length)
+ 

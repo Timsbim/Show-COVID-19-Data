@@ -9,12 +9,17 @@ from lib.prepping import get_base_data
 # Showing the data
 
 
-def get_country_data_to_show(date_, plots, *countries, length=1000):
-    """Returns the data from day date_ for the categories and variants defined
+def get_country_data_to_show(date, plots, *countries, length=1000):
+    """Returns the data from day date for the categories and variants defined
     in the dictionary plots and the countries, all loaded in one dictionary
     """
+    file_path = get_data_file_path(date, file_format="json.gz")
+    if not file_path.exists():
+        print("Data not available, please download first.")
+        return False
+    
     tbl = pd.read_json(
-        get_data_file_path(date_, file_format="json.gz"),
+        file_path,
         orient="table",
         compression="gzip",
     ).sort_index()
@@ -91,7 +96,7 @@ def setup_ax(ax, days):
     ax.set_xlabel("day", fontsize=14)
 
 
-def show_countries(date_, *countries, length=1000):
+def show_countries(date, *countries, length=1000):
     """Creates a standard set of plots for every country provided by the
     argument countries (usually a list). The set contains:
     - Confirmed cases, cumulative and diffs (including the 1-week-moving
@@ -114,10 +119,12 @@ def show_countries(date_, *countries, length=1000):
 
     # Getting the title text bits
     trsl = get_title_translation()
-    iso3_to_name = get_base_data(date_, columns=("iso3", "name"))
+    iso3_to_name = get_base_data(date, columns=("iso3", "name"))
 
     # Read data from files produced by prepare_data
-    data = get_country_data_to_show(date_, plots, *countries, length=length)
+    data = get_country_data_to_show(date, plots, *countries, length=length)
+    if not data:
+        return
 
     # Creating the plots for the selected countries
     title_font_size = 30
@@ -178,16 +185,16 @@ def show_countries(date_, *countries, length=1000):
                 # Saving the figure for single plot
                 fig.align_labels()
                 fig.savefig(
-                    get_plot_file_path(date_, country, category, variant)
+                    get_plot_file_path(date, country, category, variant)
                 )
 
             # Saving the figure with all plots per category
             fig_cat.align_labels()
-            fig_cat.savefig(get_plot_file_path(date_, country, category))
+            fig_cat.savefig(get_plot_file_path(date, country, category))
 
         # Saving the figure with all plots
         fig_all.align_labels()
-        fig_all.savefig(get_plot_file_path(date_, country))
+        fig_all.savefig(get_plot_file_path(date, country))
 
         plt.close("all")
 
@@ -196,13 +203,18 @@ def show_countries(date_, *countries, length=1000):
     print_log("Plotting finished")
 
 
-def get_group_data_to_show(date_, plots, groups, length=1000):
-    """Returns the data from day dte for the categories and variants defined
+def get_group_data_to_show(date, plots, groups, length=1000):
+    """Returns the data from day date for the categories and variants defined
     in the dictionary plots and the groups in list groups, loaded into a
     dictionary
     """
+    file_path = get_data_file_path(date, file_format="json.gz")
+    if not file_path.exists():
+        print("Data not available, please download first.")
+        return False
+        
     tbl = pd.read_json(
-        get_data_file_path(date_, file_format="json.gz"),
+        file_path,
         orient="table",
         compression="gzip",
     ).sort_index()
@@ -223,7 +235,7 @@ def get_group_data_to_show(date_, plots, groups, length=1000):
     return data
 
 
-def show_groups(date_, groups, length=1000):
+def show_groups(date, groups, length=1000):
     """Creates a standard set of plots for groups of countries provided by the
     argument groups (a dictionary). The set contains:
     - Confirmed cases per million, cumulative and diffs (including the
@@ -245,17 +257,16 @@ def show_groups(date_, groups, length=1000):
     categories = plots
 
     # Reading data from files produced by prepare_data
-    data = get_group_data_to_show(date_, plots, groups, length)
+    data = get_group_data_to_show(date, plots, groups, length)
+    if not data:
+        return
 
     title_font_size = 30
-    for group in groups:
+    for group, countries in groups.items():
         print_log(
             f"Plotting group {group} with countries "
-            f"{str.join(', ', groups[group])} ..."
+            f"{str.join(', ', countries)} ..."
         )
-
-        # Creating list of countries in group
-        countries = groups[group]
 
         # Creating the figure which includes all plots
         fig_all, axs_all = plt.subplots(3, 2, figsize=(40, 50))
@@ -305,23 +316,23 @@ def show_groups(date_, groups, length=1000):
                 # Saving the figure with single plot
                 fig.align_labels()
                 fig.savefig(
-                    get_plot_file_path(date_, group, category, variant)
+                    get_plot_file_path(date, group, category, variant)
                 )
 
                 # Saving the figure with all plots per category
             fig_cat.align_labels()
-            fig_cat.savefig(get_plot_file_path(date_, group, category))
+            fig_cat.savefig(get_plot_file_path(date, group, category))
 
         # Saving the figure with all plots
         fig_all.align_labels()
-        fig_all.savefig(get_plot_file_path(date_, group))
+        fig_all.savefig(get_plot_file_path(date, group))
         plt.close("all")
 
         print_log("Plotting finished")
 
 
 def show_countries_beyond_threshold(
-    date_, category, variant, threshold, *countries
+    date, category, variant, threshold, *countries
 ):
     """Creates a plot for the variable category -> variant for the group of
     countries. Here the plots are "normalized": The series starts with the
@@ -331,7 +342,10 @@ def show_countries_beyond_threshold(
     """
     # Fetching the relevant data and loading it into a DataFrame
     plots = {category: [variant]}
-    data = get_country_data_to_show(date_, plots, *countries)
+    data = get_country_data_to_show(date, plots, *countries)
+    if not data:
+        return
+
     tbl = pd.DataFrame()
     for country in countries:
         tbl.insert(

@@ -27,7 +27,7 @@ def download_data():
 # Preparing data for further usage
 
 
-def prepare_base_data(date_):
+def prepare_base_data(date):
     """Prepares the basic data: How to name countries (ISO3, full name, and
     population size)
     """
@@ -35,7 +35,7 @@ def prepare_base_data(date_):
     # columns (2 = ISO3-codes, 6 = province/state name, 7 = country name,
     # 11 = population size
     df = pd.read_csv(
-        str(get_feed_file_path(date_, "base")), usecols=[2, 6, 7, 11]
+        str(get_feed_file_path(date, "base")), usecols=[2, 6, 7, 11]
     )
 
     # Dropping of:
@@ -59,9 +59,10 @@ def prepare_base_data(date_):
     # - the Summer Olympics
     # - 1 entry for the total
     countries += [
-        {"iso3": "DPR", "name": "Diamond Princess", "pop": 3700},
-        {"iso3": "ZDM", "name": "MS Zaandam", "pop": 1829},
-        {"iso3": "SO2", "name": "Summer Olympics 2020", "pop": 10000},
+        {"iso3": "DPR", "name": "Diamond Princess", "pop": 3_700},
+        {"iso3": "ZDM", "name": "MS Zaandam", "pop": 1_829},
+        {"iso3": "SO2", "name": "Summer Olympics 2020", "pop": 10_000},
+        {"iso3": "WO2", "name": "Winter Olympics 2022", "pop": 10_000},
         {
             "iso3": "TTL",
             "name": "Total",
@@ -74,21 +75,20 @@ def prepare_base_data(date_):
 
     # # Writing the table in the file data_base.csv in data folder of dte
     json.dump(
-        countries, get_data_file_path(date_, name="base").open("w"), indent=4
+        countries, get_data_file_path(date, name="base").open("w"), indent=4
     )
 
 
-def get_base_data(date_, columns=("iso3", "name", "pop")):
+def get_base_data(date, columns=("iso3", "name", "pop")):
     """Extracts a (nested) dictionary from the base data from dte: The values
     of the first column act as keys of the outer dictionary and the columns
     as the keys of the inner dictionaries. If only 2 columns are request then
     there's no inner dictionary: The values to the keys are the values of the
     of the 2. column.
     """
-    object_hook = lambda obj: {column: obj[column] for column in columns}
     countries = json.load(
-        get_data_file_path(date_, name="base").open("r"),
-        object_hook=object_hook,
+        get_data_file_path(date, name="base").open("r"),
+        object_hook=lambda obj: {column: obj[column] for column in columns},
     )
 
     if len(columns) == 2:
@@ -103,22 +103,22 @@ def get_base_data(date_, columns=("iso3", "name", "pop")):
     }
 
 
-def prepare_data(date_, excel_output=False):
+def prepare_data(date, excel_output=False):
     """Actual data preparation (see the comments for details)"""
     print_log("Preparing data ...")
 
     # Preparing the base data (name, keys, pop-numbers)
-    prepare_base_data(date_)
+    prepare_base_data(date)
 
     # Getting a dictionary that translates country names in iso3-code
-    name_to_iso3 = get_base_data(date_, columns=("name", "iso3"))
+    name_to_iso3 = get_base_data(date, columns=("name", "iso3"))
 
     categories = get_categories()
     prepped_data = {}
     for category in categories[:-1]:
 
         # Reading the csv-feed-file into a DataFrame
-        df = pd.read_csv(get_feed_file_path(date_, category))
+        df = pd.read_csv(get_feed_file_path(date, category))
 
         # Aggregate (sum) over rows which belong to the same country (names in
         # column 2), which also makes the country names the new index
@@ -152,7 +152,7 @@ def prepare_data(date_, excel_output=False):
     )
 
     # Creating the rest of the dependent data (rel, diffs, ma, ...)
-    popn = get_base_data(date_, columns=("iso3", "pop"))
+    popn = get_base_data(date, columns=("iso3", "pop"))
     for category in categories:
         pmio = [
             popn[country] / 1e6
@@ -188,7 +188,7 @@ def prepare_data(date_, excel_output=False):
     # into one large Excel-file
     if excel_output:
         print_log("Writing Excel-file ...")
-        xlsx_file_path = str(get_data_file_path(date_, file_format="xlsx"))
+        xlsx_file_path = str(get_data_file_path(date, file_format="xlsx"))
         with pd.ExcelWriter(xlsx_file_path) as xlsx_file:
             for category, variant in [
                 (category, variant)
@@ -229,7 +229,7 @@ def prepare_data(date_, excel_output=False):
 
     # Writing the new frame in a JSON-file
     print_log("Writing JSON-file ...")
-    json_file_path = get_data_file_path(date_, file_format="json.gz")
+    json_file_path = get_data_file_path(date, file_format="json.gz")
     df_all.to_json(
         json_file_path, orient="table", indent=4, compression="gzip"
     )

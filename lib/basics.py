@@ -1,6 +1,6 @@
+import datetime as dt
 from sys import argv
 from pathlib import Path
-from datetime import date
 from time import strftime
 import json
 
@@ -16,12 +16,12 @@ def print_log(message):
 # Basic structures
 
 
-def set_date(date_=None):
+def set_date(date=None):
     """Provides the processing date"""
-    if not date_:
-        return date.today().strftime("%y-%m-%d")
+    if not date:
+        return dt.date.today().strftime("%y-%m-%d")
     else:
-        return date_
+        return date
 
 
 def get_categories():
@@ -67,7 +67,7 @@ def get_feed_url(category):
 # Paths and files
 
 
-def get_dir_path(key, date_=None):
+def get_dir_path(key, date=None):
     """Sets up the directory structure used in the rest of the application:
     - script_path/settings: For settings (json-files with parameters)
     - output_path/data/dte/feed: For the raw downloaded data
@@ -93,9 +93,9 @@ def get_dir_path(key, date_=None):
     if key in ["base_data", "base_plots"]:
         path = path / key[5:]
     elif key in ["data", "plots"]:
-        path = get_dir_path("base" + "_" + key) / date_
+        path = get_dir_path("base" + "_" + key) / date
     elif key == "feed":
-        path = get_dir_path("data", date_) / key
+        path = get_dir_path("data", date) / key
     path.mkdir(parents=True, exist_ok=True)
 
     return path
@@ -108,21 +108,21 @@ def get_settings_file_path(key):
     return get_dir_path("settings").joinpath(key + ".json")
 
 
-def get_feed_file_path(date_, category):
+def get_feed_file_path(date, category):
     """Provides paths to the CSV-files used for saving the downloaded data:
     dir_base/dte/data/feed_(confirmed/deaths/recovered).csv
     """
-    return get_dir_path("feed", date_).joinpath(category + ".csv")
+    return get_dir_path("feed", date).joinpath(category + ".csv")
 
 
-def get_data_file_path(date_, name="data", file_format="json"):
+def get_data_file_path(date, name="data", file_format="json"):
     """Provides the path to the prepared csv/json-files from day dte
     containing the data for category cat and variant var
     """
-    return get_dir_path("data", date_) / f"{name}.{file_format}"
+    return get_dir_path("data", date) / f"{name}.{file_format}"
 
 
-def get_plot_file_path(date_, base, *args):
+def get_plot_file_path(date, base, *args):
     """Provides the path to the plot-file generated from day dte-data, defined
     by the categories and variants specified in *args
     """
@@ -131,7 +131,7 @@ def get_plot_file_path(date_, base, *args):
         filename += "_" + arg
     filename += ".png"
 
-    path = get_dir_path("plots", date_).joinpath(base)
+    path = get_dir_path("plots", date).joinpath(base)
     path.mkdir(parents=True, exist_ok=True)
 
     return path.joinpath(filename)
