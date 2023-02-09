@@ -1,0 +1,2 @@
+language = "bash"
+run = "python show_data.py"
