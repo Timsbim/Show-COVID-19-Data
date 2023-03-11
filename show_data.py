@@ -1,8 +1,5 @@
 from argparse import ArgumentParser
-
-from lib.basics import set_date
-from lib.prepping import download_data, prepare_data
-from lib.showing import show_countries, show_groups
+from util import *
 
 
 def get_arguments():

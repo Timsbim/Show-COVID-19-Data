@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 
-from lib.basics import *
-from lib.prepping import get_base_data
+from util.basics import *
+from util.prepping import get_base_data
 
 
 # Showing the data
