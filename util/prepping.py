@@ -1,7 +1,7 @@
 from urllib.request import urlopen
 import pandas as pd
 
-from util.basics import *
+from utils.basics import *
 
 
 # Retrieving data from github repository
