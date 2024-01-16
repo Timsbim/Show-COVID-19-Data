@@ -1,5 +1,5 @@
 from argparse import ArgumentParser
-from util import *
+from utils import *
 
 
 def get_arguments():
